@@ -82,7 +82,7 @@ Therefore, a valid path from $a_1$ to $a_n$ exists in $G$ only if the inequality
 
 <img src="figs\ps.png" alt="image-20250529153439936" style="zoom:50%;" />
 
-Since algorithms and complex formulas cannot be rendered normally by markdown, please refer to the [PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf) of supplementary material for this section.
+Since algorithms and complex formulas cannot be rendered normally by markdown, please refer to the [PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf) of supplementary material for this .
 
 ### V. Reserve Ratio $\epsilon$ Theoretical Analysis ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
@@ -140,7 +140,7 @@ In real-world use, multiple values can be selected to ensure a better coverage o
 
 ### VI. Evaluation Results on $\epsilon$ ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
-The reserve ratio $\epsilon$ is a configuration parameter for the money flow simulation algorithm described in the paper's Section III-E.
+The reserve ratio $\epsilon$ is a configuration parameter for the money flow simulation algorithm described in the paper's  III-E.
 Setting an appropriate $\epsilon$ value allows MFTracer to perform better in tracing tasks.
 Apart from theoretical analysis above, we also conduct experiments to examine the effect of different values of $\epsilon$ on the results.
 The following figures illustrate the curves of precision and two types of coverage rates as $\epsilon$ is set from 0% to 55%.
@@ -189,7 +189,7 @@ This rigorous, expert-driven process ensures that the dataset reflects a realist
 While MFTracer demonstrates strong performance in flow coverage and precision, a limited number of false positives were observed in certain real-world tasks. To better understand these, we conducted a detailed comparison between MFTracer's tracing outputs and the ground truth dataset. Our analysis reveals two primary sources of false positives: *parameter sensitivity* and *token volatility*.
 
 **Parameter Sensitivity: Depth and Breadth of Topology.**
-As noted in Section III and IV, the reserve ratio parameter directly affects the depth and breadth of the generated fund flow topology. An overly conservative or aggressive setting can inflate the scope of simulated flows, resulting in false positives. This issue is readily identifiable: by running MFTracer under multiple reserve ratio settings and comparing the topological differences, investigators can isolate spurious branches and quickly discard them. This strategy offers a fast and low-effort diagnostic mechanism for tuning the system’s sensitivity.
+As noted in this file's Section III and IV, the reserve ratio parameter directly affects the depth and breadth of the generated fund flow topology. An overly conservative or aggressive setting can inflate the scope of simulated flows, resulting in false positives. This issue is readily identifiable: by running MFTracer under multiple reserve ratio settings and comparing the topological differences, investigators can isolate spurious branches and quickly discard them. This strategy offers a fast and low-effort diagnostic mechanism for tuning the system’s sensitivity.
 
 **Token Volatility and Temporal Value Drift.**
 A more subtle source of false positives stems from *temporal valuation errors* due to fluctuations in token prices. MFTracer's transaction-level fund flow analysis relies on historical USD-denominated token prices to infer monetary value at the moment of each transaction. %This valuation is typically accurate for short-term flows, but becomes less reliable in laundering schemes with longer time spans.
@@ -199,7 +199,7 @@ For example, suppose an attacker transfers \$100,000 worth of ETH to address A i
 This phenomenon arises from valuation drift—a mismatch between the token’s market price at time $t_1$ (deposit) and $t_2$ (withdrawal). Similar distortions occur in the presence of price slippage. For instance, during panic-induced sell-offs, DeFi swaps may execute at unfavorable rates, causing a discrepancy between the input and output values. From a balance-sheet perspective, part of the “missing” value is effectively transferred to public liquidity pools. Without address-level contextual information, MFTracer may incorrectly interpret such residual value flows as criminal transfers, leading to false labeling of common service addresses as laundering participants.
 
 **Manual Review and Mitigation Potential.**
-As discussed in Section 4.2, such false positives can often be filtered out manually  within a few dozen minutes by inspecting token types and public address tags. However, to minimize human review time, we propose two practical improvements:
+As discussed in the paper's Section IV-B, such false positives can often be filtered out manually within a few dozen minutes by inspecting token types and public address tags. However, to minimize human review time, we propose two practical improvements:
 
 1. *Token-Aware Asset Balances.* Currently, MFTracer maintains per-address USD-denominated balance sheets. We propose extending this to token-specific multi-asset ledgers. By appending token type metadata to the transaction-level fund flow outputs, MFTracer can construct *asset-based* rather than value-based balance states. This approach would eliminate valuation drift caused by market fluctuations. Although this enhancement may marginally increase storage overhead, MFTracer already achieves a 3.7$\times$—9.4$\times$ improvement in storage efficiency, making this trade-off acceptable.
 2. *Integration with Address Labeling Systems.* To address errors stemming from price slippage and transfers to public infrastructure, we suggest integrating MFTracer with blockchain address labeling services such as Etherscan [5], Moralis [18], MetaSleuth [19], or Chainlabs [20]. These platforms maintain curated labels for exchanges, bridges, liquidity pools, and other non-adversarial service addresses. Incorporating such data into MFTracer’s inference process would allow the system to avoid flagging known public infrastructure as part of laundering trails—particularly in cases where residual value "leaks" to public endpoints during volatile market conditions.
