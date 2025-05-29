@@ -161,7 +161,7 @@ For real-world tracing applications, multiple close values of $\epsilon$ can be 
 
 ### VII. Dataset Construction Methodology ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
-To rigorously evaluate the performance of illicit fund tracing systems, we constructed a ground-truth dataset LaunderNetEvm41 that reflects a diverse and realistic set of money laundering techniques. The dataset was collaboratively curated by a team of seven experts, including two members from our author group, three professionals from leading blockchain security firms, and two domain specialists from the broader security community. Each expert has at least one year of hands-on experience in tracking crypto-related cybercrime.
+To rigorously evaluate the performance of illicit fund tracing systems, we constructed a ground-truth dataset LaunderNetEvm41 that reflects a diverse and realistic set of money laundering techniques. The dataset was collaboratively curated by a team of seven experts, including two members from our author group, three professionals from leading blockchain security firms (For anonymity, we will disclose the firm names later.), and two domain specialists from the broader security community. Each expert has at least one year of hands-on experience in tracking crypto-related cybercrime.
 
 The dataset encompasses distinct types of real-world cybercrime incidents involving a total of approximately \$125 million USD in illicit funds. These cases were carefully selected to cover a broad range of laundering behaviors and adversarial techniques employed by different attacker groups, allowing to test the robustness and real-world applicability of tracing systems.
 
