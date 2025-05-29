@@ -8,8 +8,11 @@ The Github account and repository do not contain any author information.
 ### I. Artifacts
 
 We list the anonymous artifact links below.
+
 **Dataset (LaunderNetEvm41):** https://github.com/AnonymousMFTracer/LaunderNetEvm41.
+
 **Source Code:** https://github.com/AnonymousMFTracer/codes.
+
 **Address & Tx Lists:** https://github.com/AnonymousMFTracer/findings.
 
 ### II. Details of the Example in Fig. 1 ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
@@ -50,22 +53,29 @@ Then it applies subsequent computational steps on $G_\mathrm{L}$ to determine th
 
 For a valid money flow path $a_1\rightarrow a_2\rightarrow...\rightarrow a_n$, let $t_i$ represent the timestamp of the flow between address $a_i$ and address $a_{i+1}$. We have $t_i \ge t_{i-1}$ holds for all $1 < i < n$. It follows that for all $0<j<i<n$, we have $t_i\ge t_j$.
 Continuing with the notation of the paper, it follows straightforwardly that a valid path from $a_1$ to $a_n$ exists in $G$ only if
+
 $$
-    \forall\ 0<j<i<n,\ \exists\ t_i \in \tau_{a_i, a_{i+1}},\ \exists\ t_j \in \tau_{a_j, a_{j+1}}, 
-    \ t_i \ge t_j.
+    \forall\ 0 < j < i < n, \exists\ t_i \in \tau_{a_i, a_{i+1}},\ \exists\ t_j \in \tau_{a_j, a_{j+1}}, \ t_i \ge t_j.
 $$
+
 That is,
+
 $$
-    \forall\ 0<j<i<n,\ \exists\ t_i \in \tau_{a_i, a_{i+1}},\ t_i \ge \min \tau_{a_j, a_{j+1}}.
+    \forall\ 0 < j < i < n, \exists\ t_i \in \tau_{a_i, a_{i+1}},\ t_i \ge \min \tau_{a_j, a_{j+1}}.
 $$
+
 Equivalent to
+
 $$
-    \forall\ 0<j<i<n,\ \max \tau_{a_i, a_{i+1}} \ge \min \tau_{a_j, a_{j+1}}.
+    \forall\ 0 < j < i < n, \max \tau_{a_i, a_{i+1}} \ge \min \tau_{a_j, a_{j+1}}.
 $$
+
 This is equivalent to the following inequality.
+
 $$
-\forall\ 1<i<n,\ \max \tau_{a_i, a_{i+1}} \ge \max_{0<j<i} \min \tau_{a_j, a_{j+1}}.
+\forall\ 1 < i < n, \max \tau_{a_i, a_{i+1}} \ge \max_{0 < j < i} \min \tau_{a_j, a_{j+1}}.
 $$
+
 Therefore, a valid path from $a_1$ to $a_n$ exists in $G$ only if the inequality above holds, and the proof is complete.
 
 ### IV. Graph Search Parallelization Strategy ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
@@ -87,29 +97,39 @@ First, let’s assume an upstream flow of $M \gg T$ reaches a downstream address
 We call this address as the starting address and mark its depth as $1$.
 Then $M(1-e)^n$ indicates the maximum outflow from an address at depth $n$.
 The following can be determined, where $d$ indicates the maximum depth.
+
 $$
     M(1-\epsilon)^{d} \ge T,  M(1-\epsilon)^{d+1} < T.
 $$
+
 We can then derive that
+
 $$
     d = \left\lfloor \frac{\log (T/M)}{\log (1-\epsilon)} \right\rfloor.
 $$
+
 The equation above demonstrates that $d$ decreases as $\epsilon$ increases.
 
 Since the starting address is randomly selected from the downstream set, the number of addresses at depth $2$ indicates the breadth $b$, which satisfies the inequality below.
+
 $$
     M\epsilon^{b-1}(1-\epsilon) \ge T, M\epsilon^{b}(1-\epsilon) < T.
 $$
+
 Then we obtain that
+
 $$
     b = \left\lceil \frac{\log (T/M) - \log (1-\epsilon)}{\log \epsilon} \right\rceil.
 $$
+
 Given that $M \gg T$, then $\log(T/M)$ is a negative number with a significantly large absolute value.
 Since that $\epsilon$ is usually chosen to be less than $0.5$, then we have $|\log(1-\epsilon)| \ll |\log(T/M)|$.
 Thus, we can arrive at the following approximation.
+
 $$
     b \approx \left\lceil \frac{\log (T/M)}{\log \epsilon} \right\rceil.
 $$
+
 This demonstrates that the breadth increases as $\epsilon$ increases.
 
 Altogether, a lower reserve ratio leads to more liquidity among farther (These terms, *closer* and *farther*, are defined by the distance between addresses in the flow topology, i.e. the length of reachable path in the graph.) addresses, increasing the downstream topology's depth, while a higher distributes liquidity to closer addresses and thus increasing the downstream topology's breadth.
