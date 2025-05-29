@@ -15,7 +15,7 @@ We list the anonymous artifact links below.
 
 **Address & Tx Lists:** https://github.com/AnonymousMFTracer/findings.
 
-### II. Details of the Example in Fig. 1 ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
+### II. Details of the Example in Fig. 1 ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
 #### A. Example Overview
 
@@ -49,7 +49,7 @@ However, EOA 0 experiences a decrease in balance, whereas EOA 1 and the criminal
 Using this information, MFTracer concludes that the actual fund provider is the criminal-controlled EOA 0, and that the fund recipients are EOA 1 and the criminal-controlled smart contract.
 Then it applies subsequent computational steps on $G_\mathrm{L}$ to determine the fund flows from EOA 0 to EOA 1 and the smart contract, thereby fully uncovering the underlying fund movements of this complex transaction.
 
-### III. Proof for the Pruning Inequality ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
+### III. Proof for the Pruning Inequality ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
 For a valid money flow path $a_1\rightarrow a_2\rightarrow...\rightarrow a_n$, let $t_i$ represent the timestamp of the flow between address $a_i$ and address $a_{i+1}$. We have $t_i \ge t_{i-1}$ holds for all $1 < i < n$. It follows that for all $0<j<i<n$, we have $t_i\ge t_j$.
 Continuing with the notation of the paper, it follows straightforwardly that a valid path from $a_1$ to $a_n$ exists in $G$ only if
@@ -84,7 +84,7 @@ Therefore, a valid path from $a_1$ to $a_n$ exists in $G$ only if the inequality
 
 Since algorithms and complex formulas cannot be rendered normally by markdown, please refer to the [PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf) of supplementary material for this section.
 
-### V. Reserve Ratio $\epsilon$ Theoretical Analysis ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
+### V. Reserve Ratio $\epsilon$ Theoretical Analysis ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
 The reserve requirement, also known as the cash reserve ratio (CRR) [3, 4], is a regulation set by central banks that mandates commercial banks to hold a certain percentage of their deposit liabilities in reserves.
 By adjusting the reserve requirement, central banks can influence the liquidity in the economy system.
@@ -138,7 +138,7 @@ For criminals using extremely deep laundering paths, a lower $\epsilon$ increasi
 For criminals using wider laundering paths, a higher $\epsilon$ is a better choice.
 In real-world use, multiple values can be selected to ensure a better coverage of illicit flows.
 
-### VI. Evaluation Results on $\epsilon$ ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
+### VI. Evaluation Results on $\epsilon$ ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
 The reserve ratio $\epsilon$ is a configuration parameter for the money flow simulation algorithm described in the paper's Section III-E.
 Setting an appropriate $\epsilon$ value allows MFTracer to perform better in tracing tasks.
@@ -159,7 +159,7 @@ For real-world tracing applications, multiple close values of $\epsilon$ can be 
 
 <img src="figs\p-b.png" style="zoom:25%;" />
 
-### VII. Dataset Construction Methodology ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
+### VII. Dataset Construction Methodology ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
 To rigorously evaluate the performance of illicit fund tracing systems, we constructed a ground-truth dataset LaunderNetEvm41 that reflects a diverse and realistic set of money laundering techniques. The dataset was collaboratively curated by a team of seven experts, including two members from our author group, three professionals from leading blockchain security firms (For anonymity, we will disclose the firm names later.), and two domain specialists from the broader security community. Each expert has at least one year of hands-on experience in tracking crypto-related cybercrime.
 
@@ -184,7 +184,7 @@ Any contradictions or discrepancies between our dataset and these sources trigge
 
 This rigorous, expert-driven process ensures that the dataset reflects a realistic, high-fidelity mapping of illicit fund flows across various money laundering strategies. It serves not only as a benchmark for evaluating tracing systems, but also as a resource for further research in blockchain forensics and threat intelligence.
 
-### VIII. False Positives and Mitigation Strategies ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
+### VIII. False Positives and Mitigation Strategies ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
 While MFTracer demonstrates strong performance in flow coverage and precision, a limited number of false positives were observed in certain real-world tasks. To better understand these, we conducted a detailed comparison between MFTracer's tracing outputs and the ground truth dataset. Our analysis reveals two primary sources of false positives: *parameter sensitivity* and *token volatility*.
 
