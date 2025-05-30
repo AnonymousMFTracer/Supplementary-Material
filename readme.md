@@ -11,9 +11,9 @@ We list the anonymous artifact links below.
 
 **Dataset (LaunderNetEvm41):** https://github.com/AnonymousMFTracer/LaunderNetEvm41.
 
-**Source Code:** https://github.com/AnonymousMFTracer/codes.
+**Source code:** https://github.com/AnonymousMFTracer/codes.
 
-**Address & Tx Lists:** https://github.com/AnonymousMFTracer/findings.
+**Lists of addresses \& txs that we newly reported:** https://github.com/AnonymousMFTracer/findings.
 
 ### II. Details of the Example in Fig. 1 ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
