@@ -80,9 +80,9 @@ Therefore, a valid path from $a_1$ to $a_n$ exists in $G$ only if the inequality
 
 ### IV. Graph Search Parallelization Strategy ([PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
-<img src="figs\ps.png" alt="image-20250529153439936" style="zoom:50%;" />
+***Note: Since algorithms and complex formulas cannot be rendered normally by markdown, please refer to the [PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf) of supplementary material for this section.***
 
-Since algorithms and complex formulas cannot be rendered normally by markdown, please refer to the [PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf) of supplementary material for this .
+<img src="figs\ps.png" alt="image-20250529153439936" style="zoom:50%;" />
 
 ### V. Reserve Ratio $\epsilon$ Theoretical Analysis ([recommended PDF version](https://github.com/AnonymousMFTracer/Supplementary-Material/blob/main/Supplementary%20Material.pdf))
 
